@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>タカケイナビ | 自分だけの大学生活を始めてみる</title>
-<meta name="description" content="高崎経済大学の新入生向けポータルサイト。高経診断・サークル検索・体験談Podcast・周辺スポット情報を一覧で。">
+<meta name="description" content="高崎経済大学の新入生向けポータルサイト。サークル診断・サークル検索・体験談Podcast・周辺スポット情報を一覧で。">
 <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -571,6 +571,103 @@ footer p{font-size:11px;}
   .player-bar{padding:10px 14px;}
   footer{padding:28px 14px;}
 }
+
+/* ===== COMING SOON ===== */
+.coming-soon-wrap{text-align:center;padding:80px 24px;background:linear-gradient(135deg,var(--bg3),white);border-radius:20px;border:2px dashed var(--border);}
+.cs-icon{font-size:52px;margin-bottom:16px;}
+.cs-title{font-family:'Kaisei Decol',serif;font-size:22px;font-weight:700;color:var(--green5);margin-bottom:10px;}
+.cs-sub{font-size:14px;color:var(--t2);line-height:1.9;}
+.cs-badge{display:inline-block;background:var(--terra);color:white;padding:7px 22px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.12em;margin-top:18px;}
+
+/* ===== YOUTUBE ===== */
+.yt-outer{background:var(--bg3);padding:64px 48px 0;}
+.yt-inner{max-width:1100px;margin:0 auto;}
+.yt-card{background:linear-gradient(135deg,var(--pod),var(--pod2));border-radius:20px;overflow:hidden;box-shadow:var(--sh2);}
+.yt-card-head{padding:20px 28px 14px;display:flex;align-items:center;gap:10px;}
+.yt-logo{font-family:'Kaisei Decol',serif;font-size:18px;font-weight:700;color:white;letter-spacing:.14em;}
+.yt-logo em{color:#a0d8b0;font-style:normal;}
+.yt-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:1px;}
+.yt-embed{position:relative;padding-bottom:56.25%;height:0;}
+.yt-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+
+/* ===== サークル詳細（Wantedly風）===== */
+.cd-wrap{display:none;position:fixed;inset:0;z-index:600;background:rgba(20,50,30,.6);backdrop-filter:blur(8px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px;}
+.cd-wrap.show{display:flex;animation:fadeIn .2s ease;}
+.cd-box{background:white;border-radius:20px;width:90%;max-width:680px;margin:auto;overflow:hidden;box-shadow:0 20px 60px rgba(20,50,30,.25);}
+.cd-hero{background:linear-gradient(135deg,var(--header1),var(--header2));padding:32px 32px 24px;color:white;position:relative;}
+.cd-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.15);border:none;border-radius:8px;width:32px;height:32px;cursor:pointer;color:white;font-size:16px;display:flex;align-items:center;justify-content:center;}
+.cd-emoji{font-size:52px;margin-bottom:10px;}
+.cd-name{font-family:'Kaisei Decol',serif;font-size:26px;font-weight:700;margin-bottom:8px;}
+.cd-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.cd-badge{background:rgba(255,255,255,.15);border-radius:10px;padding:3px 12px;font-size:11px;}
+.cd-official{background:rgba(160,216,176,.2);color:#a0d8b0;border-radius:10px;padding:3px 12px;font-size:11px;font-weight:700;}
+.cd-body{padding:28px 32px;}
+.cd-h{font-size:11px;font-weight:700;color:var(--green4);letter-spacing:.1em;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.cd-h::before{content:'';width:14px;height:2px;background:var(--terra);}
+.cd-p{font-size:14px;color:var(--t2);line-height:1.9;margin-bottom:24px;}
+.cd-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.cd-stat{background:var(--bg3);border-radius:12px;padding:14px;text-align:center;}
+.cd-stat-n{font-family:'Kaisei Decol',serif;font-size:20px;font-weight:700;color:var(--green5);}
+.cd-stat-l{font-size:10px;color:var(--t3);margin-top:3px;}
+.cd-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;}
+.cd-tag{font-size:11px;padding:4px 12px;background:var(--bg3);border-radius:10px;color:var(--t2);border:1px solid var(--border);}
+.cd-voice{background:linear-gradient(135deg,#f0faf4,#fdf6ee);border-radius:14px;padding:20px;margin-bottom:24px;border:1px solid var(--border);}
+.cd-voice-q{font-size:12px;font-weight:700;color:var(--green4);margin-bottom:8px;}
+.cd-voice-t{font-size:13px;color:var(--t2);line-height:1.8;font-style:italic;}
+.cd-voice-who{font-size:11px;color:var(--t3);margin-top:6px;text-align:right;}
+.cd-sk-btn{width:100%;background:var(--terra);color:white;border:none;padding:14px;border-radius:12px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.cd-sk-btn:hover{background:#b05e3a;transform:translateY(-1px);}
+
+/* 診断結果3サークル */
+.sr-circles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 20px;}
+.src-card{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.18);border-radius:14px;padding:16px 10px;cursor:pointer;transition:all .2s;text-align:center;}
+.src-card:hover{background:rgba(255,255,255,.18);transform:translateY(-2px);}
+.src-emoji{font-size:30px;margin-bottom:6px;}
+.src-name{font-size:11px;font-weight:700;color:white;margin-bottom:4px;line-height:1.4;}
+.src-cat{font-size:10px;color:rgba(255,255,255,.55);}
+.src-btn{margin-top:8px;background:rgba(240,165,0,.2);border:1px solid rgba(240,165,0,.4);color:#f0c060;border-radius:8px;padding:4px 10px;font-size:10px;font-weight:700;cursor:pointer;font-family:inherit;width:100%;}
+.src-btn:hover{background:rgba(240,165,0,.35);}
+
+/* ===== 記事 ===== */
+.article-list{display:flex;flex-direction:column;gap:14px;}
+.article-card{background:white;border:1.5px solid var(--border);border-radius:16px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:all .2s;box-shadow:var(--sh);}
+.article-card:hover{border-color:var(--green4);transform:translateY(-1px);box-shadow:var(--sh2);}
+.article-thumb{width:76px;height:76px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:30px;}
+.article-info{flex:1;}
+.article-tag{font-size:10px;font-weight:700;color:var(--green4);letter-spacing:.06em;margin-bottom:4px;}
+.article-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.4;}
+.article-meta{font-size:10px;color:var(--t3);}
+.am-wrap{display:none;position:fixed;inset:0;z-index:600;background:rgba(20,50,30,.6);backdrop-filter:blur(8px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px;}
+.am-wrap.show{display:flex;animation:fadeIn .2s ease;}
+.am-box{background:white;border-radius:20px;width:90%;max-width:680px;margin:auto;overflow:hidden;box-shadow:0 20px 60px rgba(20,50,30,.25);}
+.am-head{background:linear-gradient(135deg,var(--pod),var(--pod2));padding:28px 32px 24px;position:relative;}
+.am-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.15);border:none;border-radius:8px;width:28px;height:28px;cursor:pointer;color:white;font-size:14px;display:flex;align-items:center;justify-content:center;}
+.am-tag{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.08em;margin-bottom:6px;}
+.am-title{font-family:'Kaisei Decol',serif;font-size:19px;font-weight:700;color:white;line-height:1.3;margin-bottom:6px;}
+.am-guest{font-size:12px;color:rgba(255,255,255,.6);}
+.am-body{padding:28px 32px;}
+.am-spotify{background:#f0fdf4;border:1.5px solid var(--green2);border-radius:12px;overflow:hidden;margin-bottom:20px;}
+.am-text{font-size:14px;color:var(--t2);line-height:2;}
+.am-text h3{font-family:'Kaisei Decol',serif;font-size:16px;color:var(--green5);margin:20px 0 8px;}
+.am-text p{margin-bottom:12px;}
+.am-text blockquote{border-left:3px solid var(--terra);padding-left:16px;color:var(--t2);font-style:italic;margin:16px 0;}
+
+/* Podcastタブ切替 */
+.pod-view-tabs{display:flex;gap:8px;margin-bottom:20px;}
+.pvt{padding:8px 18px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid var(--border);background:white;color:var(--t2);cursor:pointer;transition:all .2s;font-family:inherit;}
+.pvt:hover{border-color:var(--green4);color:var(--green5);}
+.pvt.active{background:var(--green4);border-color:var(--green4);color:white;}
+
+@media(max-width:768px){
+  .sr-circles{grid-template-columns:1fr;}
+  .yt-outer .yt-2col{grid-template-columns:1fr !important;}
+  .cd-stats{grid-template-columns:1fr 1fr;}
+  .yt-outer{padding:40px 14px 0;}
+  .cd-body{padding:20px;}
+  .cd-hero{padding:24px 20px 18px;}
+  .am-body{padding:20px;}
+  .am-head{padding:20px;}
+}
 </style>
 </head>
 <body>
@@ -580,12 +677,12 @@ footer p{font-size:11px;}
   <div class="nav-logo" onclick="showPage('home')"><span class="logo-dot"></span>タカケイナビ</div>
   <div class="nav-links">
     <button class="nl active" onclick="showPage('home')">ホーム</button>
-    <button class="nl" onclick="showPage('shindan')">高経診断</button>
+    <button class="nl" onclick="showPage('shindan')">サークル診断</button>
     <button class="nl" onclick="showPage('circles')">サークル検索</button>
-    <button class="nl" onclick="showPage('podcast')">高経体験談</button>
+    <button class="nl" onclick="showPage('podcast')">大学体験談</button>
     <button class="nl" onclick="showPage('spots')">周辺情報</button>
   </div>
-  <button class="nav-line-cta" onclick="showPage('line')">🐻 タカちゃんに相談</button>
+  <button class="nav-line-cta" onclick="window.open('https://line.me/R/ti/p/@195fbbjd','_blank')">💬 LINEで相談</button>
 </nav>
 
 <!-- ========== HOME ========== -->
@@ -616,10 +713,10 @@ footer p{font-size:11px;}
       <div>
         <div class="hero-badge">✦ 高崎経済大学 新入生向けポータル</div>
         <h1 class="hero-title">自分だけの<span class="accent">大学生活</span>を<br>始めてみる</h1>
-        <p class="hero-catch">高経診断・サークル検索・先輩の声・周辺情報。<br>高経大のすべてがここに。</p>
+        <p class="hero-catch">サークル診断・サークル検索・先輩の声・周辺情報。<br>高経大のすべてがここに。</p>
         <p class="hero-sublabel">大学でやりたいことをチェック！</p>
         <div class="hero-btns">
-          <button class="btn-primary" onclick="showPage('shindan')">高経診断 ✨</button>
+          <button class="btn-primary" onclick="showPage('shindan')">サークル診断 ✨</button>
           <button class="btn-outline" onclick="showPage('circles')">サークルを探す</button>
           <button class="btn-outline" onclick="showPage('podcast')">大学体験談</button>
           <button class="btn-outline" onclick="showPage('spots')">周辺のお店情報</button>
@@ -629,21 +726,74 @@ footer p{font-size:11px;}
     </div>
   </div>
 
-  <!-- EVENTS -->
-  <div class="ev-section">
+  <!-- YOUTUBE -->
+  <div class="yt-outer">
+    <div class="yt-inner">
+      <div style="margin-bottom:20px">
+        <div class="sec-tag">YOUTUBE</div>
+        <div class="sec-title" style="margin-bottom:4px">TAKAKEI DIALOG</div>
+        <p style="font-size:13px;color:var(--t2)">高経大生のリアルな声を動画でチェック</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <!-- EP.01 -->
+        <a href="https://youtu.be/wL0usBNgoEc" target="_blank" style="text-decoration:none">
+          <div class="yt-card" style="cursor:pointer;transition:transform .2s" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+            <div class="yt-card-head">
+              <div class="yt-logo" style="font-size:13px">EP.01</div>
+              <div class="yt-sub">車とOB訪問がカギ！宮城から群馬へ来た高経大生のリアル</div>
+            </div>
+            <div style="position:relative;background:#000;border-radius:0 0 12px 12px;overflow:hidden;">
+              <img src="https://img.youtube.com/vi/wL0usBNgoEc/maxresdefault.jpg"
+                   alt="EP.01" onerror="this.src='https://img.youtube.com/vi/wL0usBNgoEc/hqdefault.jpg'" style="width:100%;display:block;opacity:.9">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                <div style="width:56px;height:56px;background:rgba(255,0,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <div style="width:0;height:0;border-style:solid;border-width:10px 0 10px 20px;border-color:transparent transparent transparent white;margin-left:4px"></div>
+                </div>
+              </div>
+              <div style="position:absolute;bottom:8px;right:10px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 6px;border-radius:4px">31分</div>
+            </div>
+          </div>
+        </a>
+        <!-- EP.02 -->
+        <a href="https://youtu.be/v0VzTOTQ5HM" target="_blank" style="text-decoration:none">
+          <div class="yt-card" style="cursor:pointer;transition:transform .2s" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+            <div class="yt-card-head">
+              <div class="yt-logo" style="font-size:13px">EP.02</div>
+              <div class="yt-sub">筋肉から始まる自己変革。AI時代に「身体」を磨き続ける意義</div>
+            </div>
+            <div style="position:relative;background:#000;border-radius:0 0 12px 12px;overflow:hidden;">
+              <img src="https://img.youtube.com/vi/v0VzTOTQ5HM/maxresdefault.jpg"
+                   alt="EP.02" onerror="this.src='https://img.youtube.com/vi/v0VzTOTQ5HM/hqdefault.jpg'" style="width:100%;display:block;opacity:.9">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                <div style="width:56px;height:56px;background:rgba(255,0,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <div style="width:0;height:0;border-style:solid;border-width:10px 0 10px 20px;border-color:transparent transparent transparent white;margin-left:4px"></div>
+                </div>
+              </div>
+              <div style="position:absolute;bottom:8px;right:10px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 6px;border-radius:4px">32分</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <p style="font-size:11px;color:var(--t3);text-align:center;margin-top:14px">
+        ▶ クリックするとYouTubeで再生されます ／
+        <a href="https://youtube.com/channel/UCzjeRCvzBl-FDhPkCOswF1Q" target="_blank" style="color:var(--green4);font-weight:700">チャンネルで全動画を見る →</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- EVENTS: Coming Soon -->
+  <div class="ev-section" style="background:var(--bg3);">
     <div class="ev-inner">
       <div style="padding:64px 0 24px">
         <div class="sec-tag">EVENTS</div>
         <div class="sec-title">イベント情報</div>
-        <p class="sec-sub" style="margin-bottom:20px">学生主導・地域・OB/OG主催のイベントをまとめてチェック。</p>
       </div>
-      <div class="ev-tabs" id="ev-tabs">
-        <button class="evtab active" onclick="filterEv('all',this)">すべて</button>
-        <button class="evtab" onclick="filterEv('student',this)">🎓 学生主導</button>
-        <button class="evtab" onclick="filterEv('local',this)">🌿 地域イベント</button>
-        <button class="evtab" onclick="filterEv('ogob',this)">💼 OB・OG主催</button>
+      <div class="coming-soon-wrap">
+        <div class="cs-icon">🗓️</div>
+        <div class="cs-title">イベント情報を準備中です</div>
+        <p class="cs-sub">学生主導・地域・OB/OG主催のイベントを<br>順次掲載予定です。もうしばらくお待ちください！</p>
+        <div class="cs-badge">COMING SOON</div>
       </div>
-      <div class="ev-grid" id="ev-grid"></div>
     </div>
   </div>
 
@@ -669,11 +819,11 @@ footer p{font-size:11px;}
           <rect x="30" y="48" width="20" height="6" rx="3" fill="#f0a500"/>
           <text x="40" y="52.5" text-anchor="middle" font-size="4" fill="#0d2248" font-weight="bold" font-family="sans-serif">高経大</text>
         </svg>
-        <div class="tc-speech">サークル選びに迷ってる？<br>なんでも相談してね🐻✨</div>
+        <div class="tc-speech">タカケイナビ公式LINEで<br>個別相談を受け付けてます🐻✨</div>
       </div>
-      <div class="line-title">タカちゃんに<br>相談してみよう</div>
-      <p class="line-sub">サークル選び・履修・大学生活の悩みを<br>LINE公式アカウント「タカちゃん」がいつでもサポート。</p>
-      <button class="line-btn" onclick="alert('LINE友だち追加URLをここに設定してください')">🐻 タカちゃんと話す</button>
+      <div class="line-title">タカケイナビ公式LINEで<br>個別相談できます</div>
+      <p class="line-sub">サークル選び・履修・大学生活の悩みを<br>LINE公式アカウント「タカケイナビLINE」がいつでもサポート。</p>
+      <button class="line-btn" onclick="window.open('https://line.me/R/ti/p/@195fbbjd','_blank')">💬 タカケイナビLINEで相談</button>
       <p class="line-note">※ 高崎経済大学 学生団体が運営するLINE公式アカウントです</p>
     </div>
   </div>
@@ -688,9 +838,9 @@ footer p{font-size:11px;}
 <div class="page" id="page-shindan">
   <div class="page-header">
     <div class="ph-inner">
-      <div class="sec-tag">SHINDAN</div>
-      <div class="sec-title">高経診断</div>
-      <p class="sec-sub">5つの質問で、あなたと高経大との相性・おすすめのサークルタイプを診断します。</p>
+      <div class="sec-tag">CIRCLE MATCH</div>
+      <div class="sec-title">サークル診断</div>
+      <p class="sec-sub">5つの質問で、あなたにぴったりのサークルタイプを診断。おすすめサークルを3つ提案します！</p>
     </div>
   </div>
   <div class="sec-wrap">
@@ -750,12 +900,13 @@ footer p{font-size:11px;}
       </a>
     </div>
     <!-- タブフィルター -->
-    <div class="ep-tabs" id="ep-tabs">
-      <button class="etab active" onclick="filterEp('all',this)">すべて（2エピソード）</button>
-      <button class="etab" onclick="filterEp('life',this)">🎓 高経大生のリアル</button>
+    <div class="pod-view-tabs">
+      <button class="pvt active" id="pvt-pod" onclick="switchView('podcast',this)">🎙️ Podcastで聴く</button>
+      <button class="pvt" id="pvt-art" onclick="switchView('article',this)">📝 記事で読む</button>
     </div>
-    <p style="font-size:12px;color:var(--t3);margin-bottom:16px">※ 新しいエピソードは随時追加されます。<a href="https://open.spotify.com/show/4AOfcydYkmIOZzd5TVcA2D" target="_blank" style="color:var(--green4);font-weight:700">Spotifyでフォロー</a>して通知を受け取ろう！</p>
-    <div class="ep-list" id="ep-list"></div>
+    <p style="font-size:12px;color:var(--t3);margin-bottom:20px">※ 新しいエピソードは随時追加されます。<a href="https://open.spotify.com/show/4AOfcydYkmIOZzd5TVcA2D" target="_blank" style="color:var(--green4);font-weight:700">Spotifyでフォロー</a>して通知を受け取ろう！</p>
+    <div id="pod-view"><div class="ep-list" id="ep-list"></div></div>
+    <div id="art-view" style="display:none"><div class="article-list" id="article-list"></div></div>
 
     <!-- インタビュー出演者募集 -->
     <div class="interview-cta">
@@ -788,14 +939,12 @@ footer p{font-size:11px;}
     </div>
   </div>
   <div class="sec-wrap" style="padding-top:32px">
-    <div class="filter-row" id="spot-filters">
-      <button class="fc active" onclick="setSpot('all',this)">すべて</button>
-      <button class="fc" onclick="setSpot('food',this)">🍜 グルメ</button>
-      <button class="fc" onclick="setSpot('cafe',this)">☕ カフェ</button>
-      <button class="fc" onclick="setSpot('shop',this)">🛍️ 買い物</button>
-      <button class="fc" onclick="setSpot('nature',this)">🏔️ 自然</button>
+    <div class="coming-soon-wrap">
+      <div class="cs-icon">🎫</div>
+      <div class="cs-title">限定クーポンを準備中です</div>
+      <p class="cs-sub">高崎市内の飲食店・カフェ・書店など<br>タカケイナビ限定の特典クーポンを順次公開予定。<br>もうしばらくお待ちください！</p>
+      <div class="cs-badge">COMING SOON</div>
     </div>
-    <div class="spots-grid" id="spots-grid"></div>
   </div>
 </div>
 
@@ -804,8 +953,8 @@ footer p{font-size:11px;}
   <div class="page-header">
     <div class="ph-inner">
       <div class="sec-tag">LINE</div>
-      <div class="sec-title">タカちゃんに相談する</div>
-      <p class="sec-sub">サークル選び・履修・大学生活の悩みを、LINE公式アカウント「タカちゃん」がいつでもサポート。</p>
+      <div class="sec-title">LINEで相談する</div>
+      <p class="sec-sub">サークル選び・履修・大学生活の悩みを、LINE公式アカウント「タカケイナビLINE」がいつでもサポート。</p>
     </div>
   </div>
   <div class="line-section" style="padding-top:72px">
@@ -826,9 +975,9 @@ footer p{font-size:11px;}
         </svg>
         <div class="tc-speech">こんにちは！タカちゃんだよ🐻<br>何でも気軽に話しかけてね！</div>
       </div>
-      <div class="line-title">タカちゃんに<br>相談してみよう</div>
+      <div class="line-title">タカケイナビ公式LINEで<br>個別相談できます</div>
       <p class="line-sub">サークル選び・履修登録・一人暮らし・就活まで<br>高経大のことならなんでもOK。友だち追加するだけ！</p>
-      <button class="line-btn" onclick="alert('LINE友だち追加URLをここに設定してください')">🐻 タカちゃんと話す</button>
+      <button class="line-btn" onclick="window.open('https://line.me/R/ti/p/@195fbbjd','_blank')">💬 タカケイナビLINEで相談</button>
       <p class="line-note">※ 高崎経済大学 学生団体が運営するLINE公式アカウントです</p>
     </div>
   </div>
@@ -849,6 +998,14 @@ footer p{font-size:11px;}
 <!-- クーポンモーダル -->
 <div class="coupon-modal-wrap" id="coupon-modal" onclick="closeCouponModal(event)">
   <div class="coupon-modal" id="coupon-modal-body"></div>
+</div>
+<!-- サークル詳細モーダル（Wantedly風） -->
+<div class="cd-wrap" id="cd-modal" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="cd-box" id="cd-body"></div>
+</div>
+<!-- 記事モーダル -->
+<div class="am-wrap" id="am-modal" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="am-box" id="am-body"></div>
 </div>
 <!-- イベント詳細モーダル -->
 <div class="ev-modal-wrap" id="ev-modal" onclick="closeEvModal(event)">
@@ -1007,8 +1164,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderShindan();
   renderC(CIRCLES,null);
   renderEp(EPISODES);
-  renderSpots(SPOTS);
-  renderEv(EVENTS);
+  // spots-grid と ev-grid はComing Soonに置き換えたため条件付きで実行
+  if(document.getElementById('spots-grid')) renderSpots(SPOTS);
+  if(document.getElementById('ev-grid')) renderEv(EVENTS);
 });
 
 // PAGE
@@ -1049,12 +1207,16 @@ function showResult(){
   let best=RESULTS[0],bs=0;
   RESULTS.forEach(r=>{const s=r.keys.reduce((a,k)=>a+(sc[k]||0),0);if(s>bs){bs=s;best=r;}});
   dKeys=best.keys;
+  const rec=[...CIRCLES].filter(x=>(x.rk||[]).some(k=>best.keys.includes(k))).slice(0,3);
+  const cards=rec.map(x=>`<div class="src-card"><div class="src-emoji">${x.emoji}</div><div class="src-name">${x.name}</div><div class="src-cat">${x.catLabel}</div><button class="src-btn" onclick="openCdModal(${x.id})">詳細を見る →</button></div>`).join('');
   document.getElementById('shindan-box').innerHTML=`
     <div class="shin-result">
       <div class="sr-icon">${best.icon}</div>
       <div class="sr-type">${best.type}</div>
       <div class="sr-desc">${best.desc}</div>
-      <button class="btn-primary" onclick="showPage('circles')" style="margin-top:4px">おすすめサークルを見る →</button>
+      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.65);margin-bottom:12px;letter-spacing:.05em">✨ あなたにおすすめのサークル Top3</div>
+      <div class="sr-circles">${cards}</div>
+      <button class="btn-primary" onclick="showPage('circles')" style="margin-top:4px">すべてのサークルを見る →</button>
       <br><button class="sr-retry" onclick="retryD()">もう一度診断する</button>
     </div>`;
   const rn=document.getElementById('rec-notice');
@@ -1433,7 +1595,7 @@ function openShinkan(id){
       </div>
       <button onclick="document.getElementById('sk-modal').classList.remove('show');showPage('line')"
         style="width:100%;padding:12px;border-radius:10px;background:#06c755;border:none;color:white;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;margin-top:4px">
-        🐻 タカちゃんに聞いてみる
+        💬 タカケイナビLINEに相談
       </button>`;
   } else {
     html=`
@@ -1465,10 +1627,136 @@ function openShinkan(id){
 }
 function goLine(name){
   document.getElementById('sk-modal').classList.remove('show');
-  alert(`LINEの「タカちゃん」に\n「${name}の新歓情報を教えて」\nと送ってみよう！\n\n※ LINE友だち追加URLをナビCTAから設定してください`);
+  window.open('https://line.me/R/ti/p/@195fbbjd','_blank');
 }
 function closeSkModal(e){if(e.target===document.getElementById('sk-modal'))document.getElementById('sk-modal').classList.remove('show');}
 
+
+// ===== サークル詳細（Wantedly風）=====
+const CD={
+  1:{appeal:"インカレ出場を目指して本気で取り組むチームです。強くなりたい、仲間と切磋琢磨したい人を歓迎します！",recommend:"本気で体を鍛えたい人・試合で勝ちたい人・就活で体育会経験をアピールしたい人"},
+  2:{appeal:"体育会として公式リーグに参加。本気でサッカーをやりたい人、大歓迎！",recommend:"競技サッカーに本気で取り組みたい人・チームスポーツが好きな人・フィジカルを鍛えたい人"},
+  3:{appeal:"日本の伝統武道を一から学べます。礼儀や精神力も身につく奥深い世界へ。",recommend:"集中力・精神力を鍛えたい人・日本の伝統文化に興味がある人・落ち着いた活動がしたい人"},
+  4:{appeal:"群馬の山々を仲間と登ろう。初心者でも安心、先輩が丁寧にサポートします。",recommend:"自然・アウトドアが好きな人・登山に挑戦してみたい人・群馬の景色を楽しみたい人"},
+  5:{appeal:"バンドを組んでライブで演奏したい人、大歓迎！機材は部で揃っています。",recommend:"楽器を弾きたい・バンドをやりたい人・音楽が好きな人・三扇祭でステージに立ちたい人"},
+  6:{appeal:"体育会のプライドを持って演奏する本格的な吹奏楽部です。",recommend:"吹奏楽・管楽器を本格的に続けたい人・大学行事で演奏したい人・真剣に取り組みたい人"},
+  7:{appeal:"撮ることが好きな人なら誰でも歓迎。技術は入ってから学べます。",recommend:"写真・カメラが好きな人・芸術・表現に興味がある人・高崎の街を歩いてみたい人"},
+  8:{appeal:"日本の心・茶道を学びませんか。礼儀も自然と身につきます。",recommend:"落ち着いた雰囲気が好きな人・日本文化・礼儀を学びたい人・ゆったり活動したい人"},
+  9:{appeal:"脚本も演出も演技も全部自分たちで。表現することが好きな人、大歓迎！",recommend:"演技・表現に興味がある人・舞台裏の運営に挑戦したい人・クリエイティブなことが好きな人"},
+  10:{appeal:"資格取得→就活直結の最強コスパサークル。先輩の指導が手厚いです。",recommend:"簿記・会計の資格を取りたい人・将来、公認会計士・税理士・金融を目指している人"},
+  11:{appeal:"英語を実践で使いたい人、海外に興味がある人、ぜひ来てください。",recommend:"英語力を伸ばしたい人・海外・グローバルキャリアに興味がある人・ディベートに挑戦したい人"},
+  12:{appeal:"ダンスの楽しさを一緒に味わおう。初心者大歓迎、一から教えます！",recommend:"ダンスを始めてみたい人・ストリート系・エンタメが好きな人・三扇祭で目立ちたい人"},
+  13:{appeal:"K-POP好き集まれ！一緒に楽しく踊りましょう。",recommend:"K-POPが好きな人・韓国文化に興味がある人・楽しく踊りたい人・初心者でも大歓迎"},
+  14:{appeal:"高経大最大のイベントを一緒に作りませんか。リーダーシップが磨かれます。",recommend:"イベント企画・運営に挑戦したい人・リーダーシップを磨きたい人・大学全体に関わりたい人"},
+  15:{appeal:"起業・ビジネスに本気で挑戦したい人、集まれ。仲間の熱量が半端じゃない。",recommend:"在学中に起業したい人・ビジネスコンテストに挑戦したい人・社会に早くから動きたい人"},
+  16:{appeal:"登山初心者歓迎。群馬の自然を一緒にゆったり楽しもう！",recommend:"自然・ハイキングが好きな人・ゆるく活動したい人・アウトドアを気軽に始めたい人"},
+  17:{appeal:"公務員・法律系の資格を目指す仲間が集まっています。一緒に頑張ろう！",recommend:"公務員・法曹を目指している人・法律・政治に興味がある人・資格勉強を一緒にしたい人"},
+  18:{appeal:"漫画・アニメ好き、創作好き、みんな集まれ！三扇祭の頒布会が毎年楽しみ。",recommend:"漫画・アニメが好きな人・イラスト・創作活動をしたい人・同じ趣味の仲間がほしい人"},
+};
+
+function openCdModal(id){
+  const cr=CIRCLES.find(x=>x.id===id);if(!cr)return;
+  const d=CD[id]||{appeal:'詳細は新歓イベントで！',voice:'ぜひ見学に来てください！',who:'サークルメンバー'};
+  document.getElementById('cd-body').innerHTML=`
+    <div class="cd-hero">
+      <button class="cd-close" onclick="document.getElementById('cd-modal').classList.remove('show')">✕</button>
+      <div class="cd-emoji">${cr.emoji}</div>
+      <div class="cd-name">${cr.name}</div>
+      <div class="cd-badges">
+        <span class="cd-badge">${cr.catLabel}</span>
+        <span class="cd-official">${cr.official?'✅ 公認':'📌 非公認'}</span>
+      </div>
+    </div>
+    <div class="cd-body">
+      <div class="cd-h">このサークルについて</div>
+      <p class="cd-p">${cr.desc}</p>
+      <div class="cd-stats">
+        <div class="cd-stat"><div class="cd-stat-n">${cr.members}</div><div class="cd-stat-l">👥 メンバー数</div></div>
+        <div class="cd-stat"><div class="cd-stat-n" style="font-size:13px">${cr.days}</div><div class="cd-stat-l">📅 活動頻度</div></div>
+        <div class="cd-stat"><div class="cd-stat-n" style="font-size:12px">${cr.place}</div><div class="cd-stat-l">📍 活動場所</div></div>
+      </div>
+      <div class="cd-h">活動の魅力</div>
+      <p class="cd-p">${d.appeal}</p>
+      <div class="cd-tags">${cr.tags.map(t=>`<span class="cd-tag">${t}</span>`).join('')}</div>
+      <div class="cd-voice">
+        <div class="cd-voice-q">🎯 こんな人におすすめ</div>
+        <div class="cd-voice-t" style="font-style:normal">${d.recommend||d.appeal}</div>
+      </div>
+      <button class="cd-sk-btn" onclick="document.getElementById('cd-modal').classList.remove('show');openShinkan(${cr.id})">
+        🌸 新歓情報を見る
+      </button>
+    </div>`;
+  document.getElementById('cd-modal').classList.add('show');
+}
+
+// ===== 記事データ =====
+const ARTICLES=[
+  {id:'a01',icon:'🚗',bg:'#e6f5ea',tag:'高経大生のリアル',
+   title:'#1 車とOB訪問がカギ！宮城から群馬へ来た高経大生のリアル',
+   guest:'あべまさん（経済学部1年）',date:'2026.03.23',dur:'31分',
+   spotifyId:'1f2TV7k5DsyyNIl6YjXHGe',
+   body:`<h3>群馬に来て最初に驚いたこと</h3>
+<p>宮城から高崎経済大学に進学したあべまさん。「地方→地方」という選択を周りから少し変わって見られたといいます。</p>
+<blockquote>「高経大を選んだのは、公立で学費が安くて就職率が高かったから。地元の先輩がここから大手に就職していたのも大きかったです」</blockquote>
+<p>群馬に来て最初に驚いたのは「車がないと生活できない」という現実。仙台育ちで電車生活に慣れていたあべまさんにとって、バスの本数の少なさは想定外でした。</p>
+<h3>OB訪問が変えたキャリア観</h3>
+<p>1年生のうちからOB訪問を始めたあべまさん。きっかけは先輩の一言でした。</p>
+<blockquote>「早めに動いた方がいいよって言われて、最初は面倒くさいと思ってたんですけど、実際に社会人の話を聞いたら自分のやりたいことが見えてきた」</blockquote>
+<p>高経大のOBネットワークは地方銀行・公務員・中堅企業に強く、実際にOBに会いに行きやすい環境があります。</p>
+<h3>新入生へのメッセージ</h3>
+<p>「車の免許は絶対に早めに取って。あと、怖くてもOB訪問は絶対やった方がいい。高経大のOBは優しい人が多いから、普通に連絡したら会ってくれます」</p>`
+  },
+  {id:'a02',icon:'💪',bg:'#fef3c7',tag:'自己変革・身体',
+   title:'#2 筋肉から始まる自己変革。AI時代に「身体」を磨き続ける意義',
+   guest:'荒木さん（地域政策学部1年）',date:'2026.03.27',dur:'32分',
+   spotifyId:'0ALZy0R38hZanHSg7vQ8u6',
+   body:`<h3>なぜ「身体」なのか</h3>
+<p>AIが急速に発展する時代、荒木さんが選んだのは筋トレでした。最初は単純に「モテたい」という動機だったといいます。</p>
+<blockquote>「最初はそんな深い理由じゃなかったんですけど、続けていくうちに、身体を鍛えることって自分との約束を守り続けることだなって気づいて」</blockquote>
+<p>毎日ジムに通い、食事を管理する習慣は、やがて勉強や生活全体の質を変えていきました。</p>
+<h3>AIと身体の関係</h3>
+<p>荒木さんが面白い視点を提供してくれました。AIにできないことは「身体を持つこと」だと。</p>
+<blockquote>「ChatGPTは筋トレできないし、痛みも疲労も感じない。身体でしか学べないことって絶対あると思う。だから今の時代こそ、身体を磨くことに価値があると思ってます」</blockquote>
+<h3>大学生に伝えたいこと</h3>
+<p>「大学生って時間があるように見えて、気づいたら4年終わってたみたいになりやすい。なにか一つ、毎日続けられるものを見つけてほしい。継続すること自体が力になるから」</p>`
+  },
+];
+
+function renderArticles(){
+  document.getElementById('article-list').innerHTML=ARTICLES.map(a=>`
+    <div class="article-card" onclick="openArticle('${a.id}')">
+      <div class="article-thumb" style="background:${a.bg}">${a.icon}</div>
+      <div class="article-info">
+        <div class="article-tag">${a.tag}</div>
+        <div class="article-title">${a.title}</div>
+        <div class="article-meta">🎤 ${a.guest} ・ 📅 ${a.date} ・ ⏱️ ${a.dur}</div>
+      </div>
+    </div>`).join('');
+}
+
+function openArticle(id){
+  const a=ARTICLES.find(x=>x.id===id);if(!a)return;
+  const sp=a.spotifyId?`<div class="am-spotify"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/${a.spotifyId}?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe></div>`:'';
+  document.getElementById('am-body').innerHTML=`
+    <div class="am-head">
+      <button class="am-close" onclick="document.getElementById('am-modal').classList.remove('show')">✕</button>
+      <div class="am-tag">${a.tag} ・ ${a.date}</div>
+      <div class="am-title">${a.title}</div>
+      <div class="am-guest">🎤 ${a.guest} ・ ⏱️ ${a.dur}</div>
+    </div>
+    <div class="am-body">${sp}<div class="am-text">${a.body}</div></div>`;
+  document.getElementById('am-modal').classList.add('show');
+}
+
+function switchView(view,el){
+  document.querySelectorAll('.pvt').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('pod-view').style.display=view==='podcast'?'block':'none';
+  document.getElementById('art-view').style.display=view==='article'?'block':'none';
+  if(view==='article')renderArticles();
+}
+
+// renderC に「詳細を見る」ボタン追加
 // MODAL
 function closeModal(e){if(e.target===document.getElementById('modal'))document.getElementById('modal').classList.remove('show');}
 </script>
