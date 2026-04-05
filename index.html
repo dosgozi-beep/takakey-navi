@@ -847,19 +847,21 @@ footer p{font-size:11px;}
     </div>
   </div>
 
-  <!-- EVENTS: Coming Soon -->
+  <!-- EVENTS -->
   <div class="ev-section" style="background:var(--bg3);">
     <div class="ev-inner">
       <div style="padding:64px 0 24px">
         <div class="sec-tag">EVENTS</div>
         <div class="sec-title">イベント情報</div>
+        <p class="sec-sub" style="margin-bottom:20px">学生主導・地域・OB/OG主催のイベントをまとめてチェック。</p>
       </div>
-      <div class="coming-soon-wrap">
-        <div class="cs-icon">🗓️</div>
-        <div class="cs-title">イベント情報を準備中です</div>
-        <p class="cs-sub">学生主導・地域・OB/OG主催のイベントを<br>順次掲載予定です。もうしばらくお待ちください！</p>
-        <div class="cs-badge">COMING SOON</div>
+      <div class="ev-tabs" id="ev-tabs">
+        <button class="evtab active" onclick="filterEv('all',this)">すべて</button>
+        <button class="evtab" onclick="filterEv('student',this)">🎓 学生主導</button>
+        <button class="evtab" onclick="filterEv('local',this)">🌿 地域イベント</button>
+        <button class="evtab" onclick="filterEv('ogob',this)">💼 OB・OG主催</button>
       </div>
+      <div class="ev-grid" id="ev-grid"></div>
     </div>
   </div>
 
@@ -1163,42 +1165,13 @@ const SHINKAN_INFO={
 };
 
 const EVENTS=[
-  {id:"ev1",type:"student",tl:"🎓 学生主導",date:"4.12 SAT",name:"三扇祭 新歓スペシャル",
-   desc:"各サークルがブースを出展。新入生はここでサークルを一気にチェックできる！",
-   detail:"高崎経済大学最大のイベント「三扇祭」の新歓特別版。60以上のサークルが一堂に集結し、新入生に向けて活動紹介・体験コーナーを設置します。複数サークルを一度に比較できる絶好のチャンス！当日は軽食・飲み物の無料配布もあります。",
-   place:"大学 大講堂",time:"10:00〜16:00",capacity:"定員なし",fee:"無料",cat:"student"},
-  {id:"ev2",type:"student",tl:"🎓 学生主導",date:"4.18 FRI",name:"起業サークル ビジコン報告会",
-   desc:"「その先の高崎」が全国大会の結果を報告。起業に興味がある人は必見。",
-   detail:"全国ビジネスコンテストに出場した「その先の高崎」メンバーが、発表内容・審査内容・結果を詳しく報告。在学中から起業に向けて動きたい人へのリアルな体験談が聞けます。質疑応答の時間もたっぷり設けます。",
-   place:"3号館 301教室",time:"18:30〜20:00",capacity:"先着40名",fee:"無料",cat:"student"},
-  {id:"ev3",type:"student",tl:"🎓 学生主導",date:"5.10 SAT",name:"ワンフォゲ部 春の榛名ハイキング新歓",
-   desc:"榛名山をみんなで登る新歓ハイキング。先輩が準備するBBQで交流！",
-   detail:"群馬が誇る榛名山をワンダーフォーゲル部の先輩と一緒に登るハイキングイベント。山頂でのBBQランチ付き！登山初心者でも安心なルートを歩きます。装備は先輩が貸し出し可能。",
-   place:"榛名山 第2登山口 集合",time:"7:00出発・16:00解散予定",capacity:"先着20名",fee:"実費2,000円",cat:"student"},
-  {id:"ev4",type:"local",tl:"🌿 地域イベント",date:"4.20 SUN",name:"高崎まちなかマルシェ",
-   desc:"高崎市中心部で開催される地域マルシェ。学生も多数出店。",
-   detail:"高崎市と連携した地域マルシェ。地元農家・手作り雑貨・フードなど100以上のブースが出展。高経大の学生サークルも複数出店予定です。地域の人々と直接交流できる貴重な機会！",
-   place:"高崎中央銀座通り",time:"10:00〜17:00",capacity:"入場自由",fee:"無料",cat:"local"},
-  {id:"ev5",type:"local",tl:"🌿 地域イベント",date:"5.3 SAT",name:"群馬フラワーパーク春まつり",
-   desc:"春の群馬を代表するイベント。写真部の撮影スポットとしても人気。",
-   detail:"群馬を代表する花の祭典。チューリップ・バラなど春の花が満開の会場で、写真部メンバーによる撮影会も開催予定です。カメラ初心者も大歓迎。",
-   place:"群馬フラワーパーク",time:"9:00〜17:00",capacity:"入場自由",fee:"入場料あり",cat:"local"},
-  {id:"ev6",type:"local",tl:"🌿 地域イベント",date:"5.25 SUN",name:"高崎農業フェスタ",
-   desc:"WIN-WINプロジェクトが出展。地元農家の野菜販売や食体験イベント。",
-   detail:"高崎市農業センターで開催される農業体験イベント。WIN-WINプロジェクトが野菜の収穫体験・販売を担当します。農業に興味がある人・地域貢献に関心がある人はぜひ。",
-   place:"高崎市農業センター",time:"9:30〜15:00",capacity:"入場自由",fee:"無料",cat:"local"},
-  {id:"ev7",type:"ogob",tl:"💼 OB・OG主催",date:"4.26 SAT",name:"高経大OB就活相談会",
-   desc:"卒業生が現役学生の就活をサポートする座談会。業界別に先輩が直接アドバイス。",
-   detail:"公務員・金融・商社・IT・メーカーなど業界別に先輩が個別相談に対応します。エントリーシート添削・面接対策・業界研究のリアルな話が聞けます。1年生から参加OK！",
-   place:"学生会館 大会議室",time:"13:00〜17:00",capacity:"先着60名",fee:"無料",cat:"ogob"},
-  {id:"ev8",type:"ogob",tl:"💼 OB・OG主催",date:"5.17 SAT",name:"起業家OBネットワーキング",
-   desc:"卒業後に起業したOBと在校生の交流会。「その先の高崎」との共催。",
-   detail:"高経大を卒業後に起業した先輩たちと直接話せる交流会。スタートアップ・飲食・地方創生など様々な分野で活躍するOBが参加します。ピッチ・名刺交換・懇親会と充実した内容。",
-   place:"高崎市内 会場（申込後に案内）",time:"14:00〜19:00",capacity:"先着30名",fee:"無料",cat:"ogob"},
-  {id:"ev9",type:"ogob",tl:"💼 OB・OG主催",date:"6.7 SAT",name:"地方銀行OBが語る金融キャリア",
-   desc:"群馬銀行・足利銀行OBによるキャリアトーク。公務員・金融志望者必見。",
-   detail:"群馬銀行・足利銀行などの地方銀行で活躍するOBが、採用の実態・仕事のやりがい・高経大ブランドの活かし方を語ります。金融・公務員志望の方は必聴！",
-   place:"大学 講義棟 102教室",time:"14:00〜16:30",capacity:"先着50名",fee:"無料",cat:"ogob"},
+  {id:"ev0",type:"student",tl:"🎓 学生主導",date:"4.25 SAT",name:"高経ハック！☆unihack！",
+   desc:"大学生活の歩き方を先輩・OBOGから学ぶイベント。サークル・バイト・生活情報まで本音トーク！",
+   detail:"「大学生活、どう始める？最初の一手を一緒に考えよう。」\n\n新歓では聞けない本音トーク満載！サークル・バイト・おすすめスーパー・休日の過ごし方まで先輩がまるごと教えてくれます。少人数グループで話しやすい雰囲気。聞くだけでもOK！\n\n主催: sonosaki × 地方創生団体 かんますべー",
+   place:"エコラボカフェ",time:"15:00〜17:00",capacity:"先着約50名",fee:"無料",
+   applyUrl:"https://forms.gle/V4cBus678YhATVKp6",
+   detailUrl:"https://dosgozi-beep.github.io/Unihack/",
+   cat:"student"},
 ];
 
 const SHINDAN_Q=[
@@ -1232,7 +1205,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderEp(EPISODES);
   // spots-grid と ev-grid はComing Soonに置き換えたため条件付きで実行
   if(document.getElementById('spots-grid')) renderSpots(SPOTS);
-  if(document.getElementById('ev-grid')) renderEv(EVENTS);
+  renderEv(EVENTS);
 });
 
 // PAGE
@@ -1583,8 +1556,11 @@ function closeCouponModal(e){if(e.target===document.getElementById('coupon-modal
 
 // EVENTS（詳細モーダル・申し込み付き）
 function renderEv(list){
-  document.getElementById('ev-grid').innerHTML=list.map(e=>`
-    <div class="ev-card ev-${e.type}" onclick="openEvModal('${e.id}')" style="cursor:pointer">
+  const el=document.getElementById('ev-grid');
+  if(!el)return;
+  el.innerHTML=list.map(e=>`
+    <div class="ev-card ev-${e.type}" onclick="openEvModal('${e.id}')" style="cursor:pointer;position:relative;overflow:hidden">
+      ${e.id==='ev0'?'<div style="position:absolute;top:0;right:0;background:var(--terra);color:white;font-size:9px;font-weight:700;padding:4px 10px;border-radius:0 0 0 10px;letter-spacing:.06em">🆕 NEW</div>':''}
       <div class="ev-type">${e.tl}</div>
       <div class="ev-date">${e.date}</div>
       <div class="ev-name">${e.name}</div>
@@ -1601,25 +1577,30 @@ function openEvModal(evId){
   const e=EVENTS.find(x=>x.id===evId);if(!e)return;
   const applied=isApplied(evId);
   const tc={student:'var(--terra)',local:'var(--green4)',ogob:'var(--pod2)'};
+  // detail内の改行を<br>に変換
+  const detailHtml=(e.detail||'').replace(/\n/g,'<br>');
   document.getElementById('ev-modal-body').innerHTML=`
     <button class="evm-close" onclick="document.getElementById('ev-modal').classList.remove('show')">✕</button>
     <div class="evm-type" style="color:${tc[e.type]}">${e.tl}</div>
     <div class="evm-date">${e.date}</div>
     <div class="evm-name">${e.name}</div>
-    <div class="evm-desc">${e.detail}</div>
+    <div class="evm-desc">${detailHtml}</div>
     <div class="evm-meta">
       <div class="evm-mi"><div class="evm-mk">🕐 時間</div><div class="evm-mv">${e.time}</div></div>
       <div class="evm-mi"><div class="evm-mk">📍 場所</div><div class="evm-mv">${e.place}</div></div>
       <div class="evm-mi"><div class="evm-mk">👥 定員</div><div class="evm-mv">${e.capacity}</div></div>
       <div class="evm-mi"><div class="evm-mk">💴 参加費</div><div class="evm-mv">${e.fee}</div></div>
     </div>
-    ${applied
-      ?`<button class="evm-apply-btn done" disabled>✅ 申し込み済みです</button>
-        <div style="margin-top:10px;padding:12px;background:var(--bg3);border-radius:10px;font-size:11px;color:var(--t2)">
-          申込者：${getApps()[evId].name} ／ ${getApps()[evId].appliedAt}
-        </div>`
-      :`<button class="evm-apply-btn" id="apply-open-btn" onclick="showApplyForm('${evId}')">このイベントに申し込む →</button>
-        <div id="apply-form-wrap"></div>`
+    ${e.detailUrl?`<a href="${e.detailUrl}" target="_blank" style="display:block;text-align:center;margin-bottom:10px;font-size:12px;color:var(--green4);font-weight:700;text-decoration:none;padding:10px;background:var(--bg3);border-radius:10px;border:1.5px solid var(--border)">🔗 イベント詳細ページを見る →</a>`:''}
+    ${e.applyUrl
+      ?`<a href="${e.applyUrl}" target="_blank" style="display:block;text-decoration:none"><button class="evm-apply-btn" style="width:100%">📝 参加登録フォームへ →</button></a>`
+      : applied
+        ?`<button class="evm-apply-btn done" disabled>✅ 申し込み済みです</button>
+          <div style="margin-top:10px;padding:12px;background:var(--bg3);border-radius:10px;font-size:11px;color:var(--t2)">
+            申込者：${getApps()[evId].name} ／ ${getApps()[evId].appliedAt}
+          </div>`
+        :`<button class="evm-apply-btn" id="apply-open-btn" onclick="showApplyForm('${evId}')">このイベントに申し込む →</button>
+          <div id="apply-form-wrap"></div>`
     }`;
   document.getElementById('ev-modal').classList.add('show');
 }
