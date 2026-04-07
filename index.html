@@ -738,6 +738,178 @@ footer p{font-size:11px;}
   .am-body{padding:20px;}
   .am-head{padding:20px;}
 }
+
+/* ===== 特集記事（カードスライダー） ===== */
+.feature-section{background:var(--bg3);padding:0 0 72px;}
+.feature-inner{max-width:1100px;margin:0 auto;padding:0 48px;}
+.feature-header{padding:64px 0 28px;text-align:center;}
+.fh-eyebrow{font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--terra);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.fh-eyebrow::before,.fh-eyebrow::after{content:'';flex:1;max-width:32px;height:1px;background:var(--terra);opacity:.5;}
+.fh-main-title{font-family:'Kaisei Decol',serif;font-size:clamp(22px,3.5vw,36px);font-weight:700;color:var(--green5);margin-bottom:8px;}
+.fh-main-title em{color:var(--terra);font-style:normal;}
+.fh-main-sub{font-size:12px;color:var(--t3);letter-spacing:.04em;}
+
+/* スライダーラッパー（全幅） */
+.feat-slider-wrap{
+  position:relative;
+  overflow:hidden;
+  padding:0 48px 16px;
+}
+.feat-slider{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:8px 4px 16px;
+  cursor:grab;
+}
+.feat-slider:active{cursor:grabbing;}
+.feat-slider::-webkit-scrollbar{display:none;}
+
+/* ゲームカード */
+.feat-card{
+  flex:0 0 calc(25% - 14px);
+  min-width:230px;
+  max-width:280px;
+  scroll-snap-align:start;
+  position:relative;cursor:pointer;
+  transition:transform .28s cubic-bezier(.22,1,.36,1);
+}
+.feat-card:hover{transform:translateY(-6px);}
+.feat-card-outer{
+  border-radius:14px;padding:2px;
+  background:linear-gradient(140deg,var(--terra2) 0%,var(--green3) 40%,var(--terra) 70%,var(--green4) 100%);
+  box-shadow:0 6px 24px rgba(30,70,40,.18);transition:box-shadow .28s;
+}
+.feat-card:hover .feat-card-outer{box-shadow:0 14px 36px rgba(30,70,40,.28),0 0 20px rgba(200,113,74,.15);}
+.feat-card-inner{border-radius:12px;overflow:hidden;background:white;}
+
+/* サムネ：アイコン大きく・余白少なく */
+.feat-thumb{
+  position:relative;
+  height:130px;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.feat-thumb-bg{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:120px;opacity:.12;transform:scale(1.2);
+}
+.feat-thumb-icon{
+  position:relative;z-index:2;
+  font-size:64px;line-height:1;
+  filter:drop-shadow(0 3px 10px rgba(30,70,40,.2));
+}
+.feat-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(255,255,255,.95) 100%);}
+/* 右上三角 */
+.feat-corner-mark{position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 32px 32px 0;border-color:transparent var(--terra) transparent transparent;z-index:5;}
+/* 番号バッジ */
+.feat-num{position:absolute;top:9px;left:11px;z-index:5;font-family:'Kaisei Decol',serif;font-size:9px;font-weight:700;color:white;letter-spacing:.1em;background:rgba(30,70,40,.55);backdrop-filter:blur(4px);padding:2px 7px;border-radius:4px;border:1px solid rgba(255,255,255,.2);}
+.feat-scanline{position:absolute;inset:0;z-index:3;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.018) 2px,rgba(0,0,0,.018) 4px);pointer-events:none;}
+
+/* テキストエリア */
+.feat-body{padding:10px 13px 13px;background:white;border-top:1px solid var(--border);position:relative;}
+.feat-body::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2.5px;background:linear-gradient(180deg,var(--terra),var(--green4));}
+.feat-tag{font-size:9px;font-weight:700;color:var(--terra);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.feat-title{font-size:11px;font-weight:700;color:var(--green5);line-height:1.5;margin-bottom:4px;}
+.feat-excerpt{font-size:10px;color:var(--t3);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.feat-read{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;color:var(--green4);margin-top:8px;letter-spacing:.04em;}
+.feat-read::after{content:'›';font-size:13px;line-height:1;}
+.feat-card-index{text-align:center;font-size:9px;color:var(--t3);padding:5px 0 3px;font-family:'Kaisei Decol',serif;letter-spacing:.08em;}
+
+/* スクロールインジケーター */
+.feat-scroll-hint{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding-top:4px;
+}
+.feat-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background .2s;cursor:pointer;}
+.feat-dot.active{background:var(--green4);}
+.feat-scroll-arrow{
+  background:none;border:1.5px solid var(--border);border-radius:50%;
+  width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  color:var(--t2);font-size:14px;transition:all .2s;
+}
+.feat-scroll-arrow:hover{border-color:var(--green4);color:var(--green4);}
+
+/* 記事モーダル（サイトカラーベース） */
+.feat-modal-wrap{display:none;position:fixed;inset:0;z-index:700;background:rgba(20,50,30,.6);backdrop-filter:blur(10px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px;}
+.feat-modal-wrap.show{display:flex;animation:fadeIn .2s ease;}
+.feat-modal{background:white;border-radius:20px;width:90%;max-width:720px;margin:auto;overflow:hidden;box-shadow:0 20px 60px rgba(20,50,30,.25);}
+.fm-hero{padding:30px 34px 24px;position:relative;background:linear-gradient(135deg,var(--header1),var(--header2));}
+.fm-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:8px;width:30px;height:30px;cursor:pointer;color:white;font-size:13px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.fm-close:hover{background:rgba(255,255,255,.28);}
+.fm-icon{font-size:40px;margin-bottom:10px;}
+.fm-tag{font-size:10px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.1em;margin-bottom:4px;}
+.fm-title{font-family:'Kaisei Decol',serif;font-size:clamp(16px,3vw,22px);font-weight:700;color:white;line-height:1.35;margin-bottom:6px;}
+.fm-meta{font-size:11px;color:rgba(255,255,255,.35);}
+.fm-body{padding:26px 34px 34px;font-size:14px;color:var(--t2);line-height:2;}
+.fm-body h3{font-family:'Kaisei Decol',serif;font-size:16px;font-weight:700;color:var(--green5);margin:22px 0 9px;border-left:3px solid var(--terra);padding-left:11px;}
+.fm-body p{margin-bottom:12px;}
+.fm-body ul{padding-left:18px;margin-bottom:12px;}
+.fm-body li{margin-bottom:5px;}
+.fm-body .point-box{background:var(--bg3);border-radius:12px;padding:14px 16px;margin:14px 0;border-left:3px solid var(--green4);}
+.fm-body .point-box strong{color:var(--green5);}
+.fm-body .warn-box{background:#fff7ed;border-radius:12px;padding:14px 16px;margin:14px 0;border-left:3px solid var(--terra);color:var(--t2);}
+.fm-body .unihack-cta{background:linear-gradient(135deg,var(--terra),var(--terra2));border-radius:14px;padding:18px 20px;margin:20px 0;color:white;}
+.fm-body .unihack-cta h4{font-family:'Kaisei Decol',serif;font-size:15px;margin-bottom:5px;}
+.fm-body .unihack-cta p{color:rgba(255,255,255,.82);font-size:13px;margin-bottom:10px;}
+.fm-body .unihack-cta a{display:inline-block;background:white;color:var(--terra);padding:7px 20px;border-radius:20px;font-weight:700;font-size:12px;text-decoration:none;}
+@media(max-width:768px){
+  .feature-section{padding-bottom:52px;}
+  .feature-inner{padding:0 14px;}
+  .feat-slider-wrap{padding:0 14px 14px;}
+  .feat-card{min-width:200px;max-width:240px;}
+  .fm-hero,.fm-body{padding-left:18px;padding-right:18px;}
+}
+@media(max-width:768px){
+  .feature-section{padding:0 14px 56px;}
+  .feat-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .fm-hero,.fm-body{padding-left:18px;padding-right:18px;}
+}
+@media(max-width:440px){.feat-grid{grid-template-columns:1fr;}}
+
+
+/* ===== 地域活動・ボランティア ===== */
+.community-section{background:var(--green1);padding:0 48px 72px;}
+.community-inner{max-width:1100px;margin:0 auto;}
+.comm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
+.comm-card{
+  background:white;border:1.5px solid var(--border);border-radius:16px;
+  padding:20px;box-shadow:var(--sh);transition:all .22s;cursor:default;
+}
+.comm-card:hover{border-color:var(--green4);transform:translateY(-2px);box-shadow:var(--sh2);}
+.comm-icon{font-size:28px;margin-bottom:10px;}
+.comm-cat{font-size:9px;font-weight:700;color:var(--green4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
+.comm-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.4;}
+.comm-desc{font-size:11px;color:var(--t2);line-height:1.65;}
+.comm-tag{display:inline-block;margin-top:8px;background:var(--bg3);color:var(--green4);border:1px solid var(--green2);border-radius:8px;padding:2px 8px;font-size:9px;font-weight:700;}
+/* 窓口バナー */
+.comm-office{
+  background:linear-gradient(135deg,var(--header1),var(--header2));
+  border-radius:16px;padding:22px 28px;color:white;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.comm-office-icon{font-size:36px;flex-shrink:0;}
+.comm-office-body{flex:1;}
+.comm-office-title{font-family:'Kaisei Decol',serif;font-size:16px;font-weight:700;margin-bottom:4px;}
+.comm-office-desc{font-size:12px;color:rgba(255,255,255,.7);line-height:1.7;}
+.comm-office-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+.comm-link{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  color:white;padding:7px 14px;border-radius:20px;font-size:11px;font-weight:700;
+  text-decoration:none;transition:all .2s;
+}
+.comm-link:hover{background:rgba(255,255,255,.25);}
+@media(max-width:768px){
+  .community-section{padding:0 14px 56px;}
+  .comm-grid{grid-template-columns:1fr;}
+  .comm-office{padding:18px 20px;}
+}
+
 </style>
 </head>
 <body>
@@ -793,6 +965,29 @@ footer p{font-size:11px;}
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- 特集記事 -->
+  <div class="feature-section">
+    <div class="feature-inner">
+      <div class="feature-header">
+        <div class="fh-eyebrow">SPRING 2026 SPECIAL</div>
+        <div class="fh-main-title">新入生<em>特集</em>記事</div>
+        <div class="fh-main-sub">高経大生活のスタートダッシュに役立つ記事を厳選</div>
+      </div>
+    </div>
+    <div class="feat-slider-wrap">
+      <div class="feat-slider" id="feat-slider">
+        <!-- JSで描画 -->
+      </div>
+    </div>
+    <div class="feature-inner">
+      <div class="feat-scroll-hint" id="feat-hint">
+        <button class="feat-scroll-arrow" id="feat-prev" onclick="slideFeature(-1)">‹</button>
+        <div id="feat-dots"></div>
+        <button class="feat-scroll-arrow" id="feat-next" onclick="slideFeature(1)">›</button>
+      </div>
     </div>
   </div>
 
@@ -862,6 +1057,74 @@ footer p{font-size:11px;}
         <button class="evtab" onclick="filterEv('ogob',this)">💼 OB・OG主催</button>
       </div>
       <div class="ev-grid" id="ev-grid"></div>
+    </div>
+  </div>
+
+  <!-- 地域活動・ボランティア -->
+  <div class="community-section" style="display:none">
+    <div class="community-inner">
+      <div style="padding:64px 0 28px">
+        <div class="sec-tag">COMMUNITY</div>
+        <div class="sec-title">地域活動・ボランティア</div>
+        <p class="sec-sub" style="margin-bottom:0">高崎経済大学では、大学公式の支援室を通じて地域・ボランティア活動に参加できます。授業・バイトでは得られない経験と仲間が見つかります。</p>
+      </div>
+      <div class="comm-grid">
+        <div class="comm-card">
+          <div class="comm-icon">🎉</div>
+          <div class="comm-cat">地域イベント</div>
+          <div class="comm-name">たかさき祭り・ハロウィン・キングオブパスタ</div>
+          <div class="comm-desc">高崎市の主要イベントに学生ボランティアとして参加。地域の人々と直接つながれる貴重な機会。毎年多くの高経大生が参加しています。</div>
+          <span class="comm-tag">🏙️ 高崎市内</span>
+        </div>
+        <div class="comm-card">
+          <div class="comm-icon">🏫</div>
+          <div class="comm-cat">学習支援</div>
+          <div class="comm-name">子ども・学生への学習支援ボランティア</div>
+          <div class="comm-desc">NPO法人学習塾HOPE・みどの福祉会・NPO法人じゃんけんぽんなどと連携。子どもたちの学習をサポートする活動で教えるスキルも身につきます。</div>
+          <span class="comm-tag">📚 学習支援</span>
+        </div>
+        <div class="comm-card">
+          <div class="comm-icon">🤝</div>
+          <div class="comm-cat">福祉・介護</div>
+          <div class="comm-name">福祉施設・障害者支援センターでの活動</div>
+          <div class="comm-desc">食育レストラン「晴れの日」・高崎市障害者サポートセンターる～ぷ・特別養護老人ホーム等での福祉ボランティア。社会を肌で感じる経験に。</div>
+          <span class="comm-tag">💚 福祉</span>
+        </div>
+        <div class="comm-card">
+          <div class="comm-icon">🌍</div>
+          <div class="comm-cat">国際交流・NGO</div>
+          <div class="comm-name">IVUSA・国際ボランティア学生協会</div>
+          <div class="comm-desc">国内外の被災地支援や地域活動に取り組む学生団体。高経大生も多数参加。国際的な視野と行動力が身につく活動です。</div>
+          <span class="comm-tag">🌏 国際</span>
+        </div>
+        <div class="comm-card">
+          <div class="comm-icon">🌱</div>
+          <div class="comm-cat">まちづくり・環境</div>
+          <div class="comm-name">0号館・フレまち隊・学生環境団体</div>
+          <div class="comm-desc">高崎のまちを元気にする学生団体「0号館」や、地域フィールドワーク系サークルが活動中。地域政策学部の学びと直結する活動も多数。</div>
+          <span class="comm-tag">🏘️ まちづくり</span>
+        </div>
+        <div class="comm-card">
+          <div class="comm-icon">📣</div>
+          <div class="comm-cat">社会貢献・募金</div>
+          <div class="comm-name">あしなが学生募金・あすなろ学生部会</div>
+          <div class="comm-desc">遺児支援のあしなが学生募金や、地域の子ども・高齢者支援に取り組む「あすなろ」など。定期的な活動で仲間もできやすい。</div>
+          <span class="comm-tag">❤️ 社会貢献</span>
+        </div>
+      </div>
+      <!-- 窓口バナー -->
+      <div class="comm-office">
+        <div class="comm-office-icon">🏢</div>
+        <div class="comm-office-body">
+          <div class="comm-office-title">学生ボランティア活動支援室（大学公式）</div>
+          <div class="comm-office-desc">高経大の事務棟1階に設置。ボランティア先のマッチング・保険加入支援・情報提供を行っています。「何かしたい」という気持ちがあれば、まず相談してみよう。</div>
+          <div class="comm-office-links">
+            <a href="https://www.tcue.ac.jp/leafpage/224.html" target="_blank" class="comm-link">🔗 公式ページを見る</a>
+            <a href="mailto:volunteer@tcue.ac.jp" class="comm-link">✉️ volunteer@tcue.ac.jp</a>
+            <span class="comm-link" style="cursor:default">📞 027-329-6714</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1007,12 +1270,14 @@ footer p{font-size:11px;}
     </div>
   </div>
   <div class="sec-wrap" style="padding-top:32px">
-    <div class="coming-soon-wrap">
-      <div class="cs-icon">🎫</div>
-      <div class="cs-title">限定クーポンを準備中です</div>
-      <p class="cs-sub">高崎市内の飲食店・カフェ・書店など<br>タカケイナビ限定の特典クーポンを順次公開予定。<br>もうしばらくお待ちください！</p>
-      <div class="cs-badge">COMING SOON</div>
+    <div class="filter-row" id="spot-filters">
+      <button class="fc active" onclick="setSpot('all',this)">すべて</button>
+      <button class="fc" onclick="setSpot('food',this)">🍜 グルメ</button>
+      <button class="fc" onclick="setSpot('cafe',this)">☕ カフェ</button>
+      <button class="fc" onclick="setSpot('shop',this)">🛍️ 買い物</button>
+      <button class="fc" onclick="setSpot('nature',this)">🏔️ 自然</button>
     </div>
+    <div class="spots-grid" id="spots-grid"></div>
   </div>
 </div>
 
@@ -1074,6 +1339,10 @@ footer p{font-size:11px;}
 <!-- 記事モーダル -->
 <div class="am-wrap" id="am-modal" onclick="if(event.target===this)this.classList.remove('show')">
   <div class="am-box" id="am-body"></div>
+</div>
+<!-- 特集記事モーダル -->
+<div class="feat-modal-wrap" id="feat-modal" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="feat-modal" id="feat-modal-body"></div>
 </div>
 <!-- イベント詳細モーダル -->
 <div class="ev-modal-wrap" id="ev-modal" onclick="closeEvModal(event)">
@@ -1202,9 +1471,10 @@ function isApplied(id){return !!getApps()[id];}
 document.addEventListener('DOMContentLoaded',()=>{
   renderShindan();
   renderC(CIRCLES,null);
+  renderFeatures();
   renderEp(EPISODES);
   // spots-grid と ev-grid はComing Soonに置き換えたため条件付きで実行
-  if(document.getElementById('spots-grid')) renderSpots(SPOTS);
+  renderSpots(SPOTS);
   renderEv(EVENTS);
 });
 
@@ -1399,7 +1669,7 @@ function closeApplyModal(e){if(e.target===document.getElementById('apply-modal')
 function renderSpots(list){
   const catLabel={food:'グルメ',cafe:'カフェ',shop:'買い物',nature:'自然'};
   document.getElementById('spots-grid').innerHTML=list.map((s,i)=>`
-    <div class="spot-card" onclick="openCoupon(${i})">
+    <div class="spot-card">
       <div class="spot-thumb" style="background:${s.bg}">${s.emoji}</div>
       <div class="spot-body">
         <div class="spot-cat">${catLabel[s.cat]}</div>
@@ -1407,9 +1677,6 @@ function renderSpots(list){
         <div class="spot-desc">${s.desc}</div>
         <div class="spot-meta"><span>🕐 ${s.open}</span><span>💴 ${s.price}</span></div>
         <div class="dist-tag">📍 ${s.dist}</div>
-        <div style="margin-top:8px;display:inline-flex;align-items:center;gap:4px;background:var(--terra);color:white;padding:4px 10px;border-radius:8px;font-size:10px;font-weight:700">
-          🎫 限定クーポンを見る
-        </div>
       </div>
     </div>`).join('');
 }
@@ -1678,6 +1945,204 @@ function goLine(name){
 }
 function closeSkModal(e){if(e.target===document.getElementById('sk-modal'))document.getElementById('sk-modal').classList.remove('show');}
 
+
+
+// ===== 特集記事データ =====
+const FEATURES = [
+  {
+    id:"f01", hidden:true, icon:"📋", bg:"linear-gradient(135deg,#e6f5ea,#d1f0dc)",
+    tag:"履修登録", num:"01",
+    title:"科目登録で失敗しない！高経大1年生の履修の組み方",
+    excerpt:"初めての履修登録は迷いがち。先輩の失敗談をもとに「やっておくべきこと」を解説します。",
+    body:`<h3>履修登録の基本を押さえよう</h3>
+<p>高経大では、入学直後の4月初旬にガイダンスが行われ、その後すぐに履修登録期間が始まります。経済学部・地域政策学部ともに、1年次は必修科目が多めに設定されているので、まずは必修から埋めていくのが鉄則です。</p>
+<div class="point-box"><strong>📌 必修科目を最優先！</strong><br>英語・文章読解・論文作成力（経済学部）、初年次ゼミ・地域政策学入門（地域政策学部）などが1年次の必修。これを落とすと後々の進路に影響するので絶対に登録を。</div>
+<h3>時間割の組み方のコツ</h3>
+<p>闇雲に授業を詰め込むと疲弊します。週に1〜2コマは「何もない時間」を意図的に作り、課題・自習・サークルに充てる余裕を確保しましょう。</p>
+<ul>
+  <li>1コマ90分、週に最大20コマ程度が履修できる</li>
+  <li>1年次は週14〜16コマ程度がちょうどいい</li>
+  <li>月曜1限は「休みがち」になりやすいので注意</li>
+  <li>木・金に授業を集中させると月〜水が楽になる</li>
+</ul>
+<h3>先輩が後悔した「あるある」失敗談</h3>
+<div class="warn-box">❌ 「楽単」を狙って選んだら内容が全くわからなかった<br>❌ 授業が多すぎてサークルに行く時間がなくなった<br>❌ 必修を落として翌年また受けるはめになった<br>❌ GPAを軽く見ていたら就活でアピールできなかった</div>
+<h3>GPA制度を意識しよう</h3>
+<p>高経大ではGPA（成績平均値）が就職・進学・交換留学の選考に使われます。1年次から意識して、確実に単位を取れる授業選択を心がけましょう。取れそうにない授業は早めに履修取り消しを。</p>
+<h3>ゼミナールについて</h3>
+<p>経済学部・地域政策学部ともに<strong>2年次後期からゼミが必修</strong>になります。ゼミ選びは2年次に行いますが、1年次から先輩のゼミ見学に参加しておくと選択のヒントになります。</p>
+<div class="unihack-cta">
+  <h4>🎮 先輩に直接聞いてみよう</h4>
+  <p>履修登録の疑問は「高経ハック！☆unihack！」で先輩に直接質問できます。4月25日（土）15:00〜 エコラボカフェで開催！</p>
+  <a href="https://dosgozi-beep.github.io/Unihack/" target="_blank">イベント詳細を見る →</a>
+</div>`
+  },
+  {
+    id:"f02", icon:"🎪", bg:"linear-gradient(135deg,#fdf6ee,#f5e9d8)",
+    tag:"サークル選び", num:"02",
+    title:"新歓シーズンの正しい歩き方。後悔しないサークルの選び方",
+    excerpt:"タダ飯だけが目的になっていませんか？本当に合うサークルを見極める3つのポイント。",
+    body:`<h3>新歓は「試食」と考えよう</h3>
+<p>4〜5月は新歓シーズン。各サークルが食事付きの歓迎会を開催します。これは「タダ飯チャンス」でありつつ、サークルの雰囲気を実際に確かめる絶好の機会です。断るのが怖くて一つ目に入ってしまう人が多いですが、複数のサークルを試食してから決めるのがベストです。</p>
+<div class="point-box"><strong>💡 新歓は複数参加がスタンダード</strong><br>断る場合は「他も見てから決めたいので、少し考えさせてください」で十分です。先輩も慣れているので大丈夫です。</div>
+<h3>サークル選びの3つのポイント</h3>
+<ul>
+  <li><strong>① 活動頻度と自分のペース</strong>：体育会系は週3〜4回。文化系・ゆるいサークルは週1〜2回が多い。授業・バイトと両立できるか確認。</li>
+  <li><strong>② 先輩の雰囲気・人間関係</strong>：新歓の場での先輩の接し方が、サークルの普段の空気感に近い。「楽しそうか」「無理させていないか」を肌で感じて。</li>
+  <li><strong>③ 三扇祭（学園祭）での立ち位置</strong>：秋の三扇祭はほぼすべてのサークルが活動を披露する。昨年の三扇祭の様子をSNSで検索してみると雰囲気がわかる。</li>
+</ul>
+<h3>掛け持ちはアリ？</h3>
+<p>高経大ではサークルの掛け持ちは普通です。ゆるいサークルと体育会系を掛け持ちする人、文化系を2つ掛け持ちする人もいます。ただし3つ以上になると授業・バイトとの両立が難しくなるので注意。</p>
+<h3>高経大のサークルカテゴリ一覧</h3>
+<div class="point-box">⚽ <strong>体育系</strong>（バスケ・サッカー・弓道・ラグビーなど）<br>🎵 <strong>音楽</strong>（軽音楽部・吹奏楽部・ジャズ研究会）<br>📷 <strong>文化</strong>（写真部・茶道部・演劇・漫画）<br>📚 <strong>学術</strong>（経理研究部・ESS・法律研究会）<br>💃 <strong>ダンス</strong>（DAZzLE・Sparkle）<br>🌱 <strong>地域</strong>（三扇実行委員会・その先の高崎）</div>
+<div class="unihack-cta">
+  <h4>🎮 高経ハック！で先輩に生の声を聞こう</h4>
+  <p>「どのサークルにすればいい？」「複数見てから決めたい」そんな相談を先輩に直接できます。4月25日（土）15:00〜 参加無料！</p>
+  <a href="https://dosgozi-beep.github.io/Unihack/" target="_blank">イベント詳細を見る →</a>
+</div>`
+  },
+  {
+    id:"f03", icon:"🏠", bg:"linear-gradient(135deg,#eff6ff,#dbeafe)",
+    tag:"一人暮らし", num:"03",
+    title:"高崎での初めての一人暮らし完全ガイド【エリア・家賃・生活費】",
+    excerpt:"家賃3〜5万円台の物件が中心。車必須の群馬生活をリアルに解説します。",
+    body:`<h3>高崎市での一人暮らし、まずは立地から</h3>
+<p>高崎経済大学のキャンパスは高崎市上並榎町にあります。最寄り駅はJR信越本線「北高崎駅」（徒歩約25分）または「群馬八幡駅」。駅からは少し遠いため、多くの学生はキャンパス周辺のアパートに住み、自転車やバイクで通学しています。</p>
+<div class="point-box"><strong>🚲 移動手段は自転車が基本</strong><br>キャンパス周辺〜高崎駅間は自転車で20〜30分。高崎駅周辺に住む学生もいますが、キャンパス近くの方が通学は楽です。ただし、群馬生活では将来的に<strong>車の免許が必須</strong>。在学中に取得する学生がほとんどです。</div>
+<h3>家賃の相場</h3>
+<ul>
+  <li>1K（23〜30㎡）：約3〜5万円が相場</li>
+  <li>キャンパス徒歩圏内は3〜4万円台が多い</li>
+  <li>高崎駅周辺は4〜6万円台とやや高め</li>
+  <li>生協のアパート情報（univroom.jp/takakei）を活用するのがおすすめ</li>
+</ul>
+<h3>月々の生活費の目安</h3>
+<div class="point-box">
+  家賃：3.5〜4.5万円<br>
+  食費：2〜3万円（自炊ベース）<br>
+  光熱費・通信費：1〜1.5万円<br>
+  交通費：0.5万円（自転車メイン）<br>
+  <strong>合計：約7〜10万円／月</strong>
+</div>
+<h3>近隣スーパー・生活施設</h3>
+<ul>
+  <li><strong>フレッセイ並榎店</strong>（徒歩6分）：食材・日用品が揃う定番スーパー</li>
+  <li><strong>セブンイレブン</strong>：キャンパス内に設置あり</li>
+  <li><strong>高崎オーパ</strong>（高崎駅直結）：ファッション・雑貨が充実</li>
+  <li>大学内に食堂が2つあり、昼食は安く済ませられる</li>
+</ul>
+<h3>一人暮らしで最初に買うべきもの</h3>
+<p>冷蔵庫・洗濯機・電子レンジは最低限必要です。家具家電付きの物件を選べば初期費用を大幅に削減できます。布団・カーテン・Wi-Fiルーターも入居当日から必要なので忘れずに。</p>
+<div class="unihack-cta">
+  <h4>🎮 先輩から生活のリアルを聞こう</h4>
+  <p>おすすめのスーパー・節約術・アパート選びの失敗談まで。4月25日の高経ハック！で先輩に直接質問できます！</p>
+  <a href="https://dosgozi-beep.github.io/Unihack/" target="_blank">イベント詳細を見る →</a>
+</div>`
+  },
+  {
+    id:"f04", icon:"💼", bg:"linear-gradient(135deg,#fef9ee,#fef3c7)",
+    tag:"アルバイト", num:"04",
+    title:"高経大生のアルバイト事情。おすすめの探し方と注意点",
+    excerpt:"学業・サークルと両立できるバイトの探し方。高崎エリアのリアルな時給相場も。",
+    body:`<h3>バイトは1年次後期から始めるのがベスト</h3>
+<p>入学直後はガイダンス・履修登録・新歓・授業ペースの把握で意外と忙しい。サークルが落ち着く5〜6月頃から探し始めるのがちょうどいいタイミングです。</p>
+<div class="warn-box">⚠️ 4月からすぐバイトを始めると、授業・サークル・バイトの三重負担で燃え尽きる人が続出。まず大学生活のペースをつかんでから。</div>
+<h3>高崎エリアの時給相場</h3>
+<ul>
+  <li>飲食店・カフェ：950〜1,100円</li>
+  <li>コンビニ・スーパー：950〜1,050円</li>
+  <li>塾講師・家庭教師：1,500〜2,500円（経験者優遇）</li>
+  <li>工場・軽作業：1,000〜1,200円（週末・夜間は高め）</li>
+  <li>高崎駅周辺は比較的求人が多い</li>
+</ul>
+<h3>バイト探しの方法</h3>
+<div class="point-box"><strong>📱 高経大生に人気の探し方</strong><br>
+① タウンワーク・マイナビバイト・Indeedで検索（高崎市で絞る）<br>
+② 先輩の紹介（口コミで入りやすい）<br>
+③ キャンパス内掲示板のバイト情報<br>
+④ 生協のアルバイト情報コーナー</div>
+<h3>学業と両立するコツ</h3>
+<ul>
+  <li>週3日・1日4〜6時間が無理のないペース</li>
+  <li>テスト前2週間はシフトを減らす交渉を最初からしておく</li>
+  <li>時給より「家からの距離」「シフトの自由度」を重視</li>
+  <li>深夜バイトは体調を崩しやすいので注意</li>
+</ul>
+`
+  }
+];
+
+
+function renderFeatures(){
+  const slider=document.getElementById('feat-slider');
+  if(!slider)return;
+  const visible=FEATURES.filter(f=>!f.hidden);
+  slider.innerHTML=visible.map((f,i)=>`
+    <div class="feat-card" onclick="openFeature('${f.id}')">
+      <div class="feat-card-outer">
+        <div class="feat-card-inner">
+          <div class="feat-thumb">
+            <div class="feat-thumb-bg">${f.icon}</div>
+            <div class="feat-thumb-icon">${f.icon}</div>
+            <div class="feat-scanline"></div>
+            <div class="feat-num">ARTICLE ${f.num}</div>
+            <div class="feat-corner-mark"></div>
+          </div>
+          <div class="feat-body">
+            <div class="feat-tag">${f.tag}</div>
+            <div class="feat-title">${f.title}</div>
+            <div class="feat-excerpt">${f.excerpt}</div>
+            <div class="feat-read">READ MORE</div>
+          </div>
+        </div>
+      </div>
+      <div class="feat-card-index">${String(i+1).padStart(2,'0')} / ${String(visible.length).padStart(2,'0')}</div>
+    </div>`).join('');
+  // ドットインジケーター生成
+  const dots=document.getElementById('feat-dots');
+  if(dots){
+    dots.style.display='flex';dots.style.gap='6px';
+    dots.innerHTML=visible.map((_,i)=>`<div class="feat-dot${i===0?' active':''}" onclick="goFeatureSlide(${i})"></div>`).join('');
+  }
+  // スクロールで dot 更新
+  slider.addEventListener('scroll',()=>{
+    const w=slider.querySelector('.feat-card')?.offsetWidth||260;
+    const idx=Math.round(slider.scrollLeft/(w+18));
+    document.querySelectorAll('.feat-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  },{passive:true});
+  // ドラッグスクロール
+  let isDown=false,startX,scrollLeft;
+  slider.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX-slider.offsetLeft;scrollLeft=slider.scrollLeft;});
+  slider.addEventListener('mouseleave',()=>{isDown=false;});
+  slider.addEventListener('mouseup',()=>{isDown=false;});
+  slider.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-slider.offsetLeft;slider.scrollLeft=scrollLeft-(x-startX)*1.5;});
+}
+function slideFeature(dir){
+  const slider=document.getElementById('feat-slider');
+  if(!slider)return;
+  const w=(slider.querySelector('.feat-card')?.offsetWidth||260)+18;
+  slider.scrollBy({left:dir*w,behavior:'smooth'});
+}
+function goFeatureSlide(idx){
+  const slider=document.getElementById('feat-slider');
+  if(!slider)return;
+  const w=(slider.querySelector('.feat-card')?.offsetWidth||260)+18;
+  slider.scrollTo({left:idx*w,behavior:'smooth'});
+}
+
+function openFeature(id){
+  const f=FEATURES.find(x=>x.id===id);if(!f)return;
+  document.getElementById('feat-modal-body').innerHTML=`
+    <div class="fm-hero">
+      <button class="fm-close" onclick="document.getElementById('feat-modal').classList.remove('show')">✕</button>
+      <div class="fm-icon">${f.icon}</div>
+      <div class="fm-tag">記事 ${f.num} ／ ${f.tag}</div>
+      <div class="fm-title">${f.title}</div>
+      <div class="fm-meta">タカケイナビ 新入生特集 2026</div>
+    </div>
+    <div class="fm-body">${f.body}</div>`;
+  document.getElementById('feat-modal').classList.add('show');
+}
 
 // ===== サークル詳細（Wantedly風）=====
 const CD={
