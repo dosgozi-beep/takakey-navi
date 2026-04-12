@@ -876,39 +876,22 @@ footer p{font-size:11px;}
 .community-section{background:var(--green1);padding:0 48px 72px;}
 .community-inner{max-width:1100px;margin:0 auto;}
 .comm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
-.comm-card{
-  background:white;border:1.5px solid var(--border);border-radius:16px;
-  padding:20px;box-shadow:var(--sh);transition:all .22s;cursor:default;
-}
+.comm-card{background:white;border:1.5px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--sh);transition:all .22s;}
 .comm-card:hover{border-color:var(--green4);transform:translateY(-2px);box-shadow:var(--sh2);}
 .comm-icon{font-size:28px;margin-bottom:10px;}
 .comm-cat{font-size:9px;font-weight:700;color:var(--green4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
 .comm-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.4;}
 .comm-desc{font-size:11px;color:var(--t2);line-height:1.65;}
 .comm-tag{display:inline-block;margin-top:8px;background:var(--bg3);color:var(--green4);border:1px solid var(--green2);border-radius:8px;padding:2px 8px;font-size:9px;font-weight:700;}
-/* 窓口バナー */
-.comm-office{
-  background:linear-gradient(135deg,var(--header1),var(--header2));
-  border-radius:16px;padding:22px 28px;color:white;
-  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
-}
+.comm-office{background:linear-gradient(135deg,var(--header1),var(--header2));border-radius:16px;padding:22px 28px;color:white;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
 .comm-office-icon{font-size:36px;flex-shrink:0;}
 .comm-office-body{flex:1;}
 .comm-office-title{font-family:'Kaisei Decol',serif;font-size:16px;font-weight:700;margin-bottom:4px;}
 .comm-office-desc{font-size:12px;color:rgba(255,255,255,.7);line-height:1.7;}
 .comm-office-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
-.comm-link{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
-  color:white;padding:7px 14px;border-radius:20px;font-size:11px;font-weight:700;
-  text-decoration:none;transition:all .2s;
-}
+.comm-link{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white;padding:7px 14px;border-radius:20px;font-size:11px;font-weight:700;text-decoration:none;transition:all .2s;}
 .comm-link:hover{background:rgba(255,255,255,.25);}
-@media(max-width:768px){
-  .community-section{padding:0 14px 56px;}
-  .comm-grid{grid-template-columns:1fr;}
-  .comm-office{padding:18px 20px;}
-}
+@media(max-width:768px){.community-section{padding:0 14px 56px;}.comm-grid{grid-template-columns:1fr;}.comm-office{padding:18px 20px;}}
 
 </style>
 </head>
@@ -1069,55 +1052,18 @@ footer p{font-size:11px;}
         <p class="sec-sub" style="margin-bottom:0">高崎経済大学では、大学公式の支援室を通じて地域・ボランティア活動に参加できます。授業・バイトでは得られない経験と仲間が見つかります。</p>
       </div>
       <div class="comm-grid">
-        <div class="comm-card">
-          <div class="comm-icon">🎉</div>
-          <div class="comm-cat">地域イベント</div>
-          <div class="comm-name">たかさき祭り・ハロウィン・キングオブパスタ</div>
-          <div class="comm-desc">高崎市の主要イベントに学生ボランティアとして参加。地域の人々と直接つながれる貴重な機会。毎年多くの高経大生が参加しています。</div>
-          <span class="comm-tag">🏙️ 高崎市内</span>
-        </div>
-        <div class="comm-card">
-          <div class="comm-icon">🏫</div>
-          <div class="comm-cat">学習支援</div>
-          <div class="comm-name">子ども・学生への学習支援ボランティア</div>
-          <div class="comm-desc">NPO法人学習塾HOPE・みどの福祉会・NPO法人じゃんけんぽんなどと連携。子どもたちの学習をサポートする活動で教えるスキルも身につきます。</div>
-          <span class="comm-tag">📚 学習支援</span>
-        </div>
-        <div class="comm-card">
-          <div class="comm-icon">🤝</div>
-          <div class="comm-cat">福祉・介護</div>
-          <div class="comm-name">福祉施設・障害者支援センターでの活動</div>
-          <div class="comm-desc">食育レストラン「晴れの日」・高崎市障害者サポートセンターる～ぷ・特別養護老人ホーム等での福祉ボランティア。社会を肌で感じる経験に。</div>
-          <span class="comm-tag">💚 福祉</span>
-        </div>
-        <div class="comm-card">
-          <div class="comm-icon">🌍</div>
-          <div class="comm-cat">国際交流・NGO</div>
-          <div class="comm-name">IVUSA・国際ボランティア学生協会</div>
-          <div class="comm-desc">国内外の被災地支援や地域活動に取り組む学生団体。高経大生も多数参加。国際的な視野と行動力が身につく活動です。</div>
-          <span class="comm-tag">🌏 国際</span>
-        </div>
-        <div class="comm-card">
-          <div class="comm-icon">🌱</div>
-          <div class="comm-cat">まちづくり・環境</div>
-          <div class="comm-name">0号館・フレまち隊・学生環境団体</div>
-          <div class="comm-desc">高崎のまちを元気にする学生団体「0号館」や、地域フィールドワーク系サークルが活動中。地域政策学部の学びと直結する活動も多数。</div>
-          <span class="comm-tag">🏘️ まちづくり</span>
-        </div>
-        <div class="comm-card">
-          <div class="comm-icon">📣</div>
-          <div class="comm-cat">社会貢献・募金</div>
-          <div class="comm-name">あしなが学生募金・あすなろ学生部会</div>
-          <div class="comm-desc">遺児支援のあしなが学生募金や、地域の子ども・高齢者支援に取り組む「あすなろ」など。定期的な活動で仲間もできやすい。</div>
-          <span class="comm-tag">❤️ 社会貢献</span>
-        </div>
+        <div class="comm-card"><div class="comm-icon">🎉</div><div class="comm-cat">地域イベント</div><div class="comm-name">たかさき祭り・ハロウィン・キングオブパスタ</div><div class="comm-desc">高崎市の主要イベントに学生ボランティアとして参加。地域の人々と直接つながれる貴重な機会。</div><span class="comm-tag">🏙️ 高崎市内</span></div>
+        <div class="comm-card"><div class="comm-icon">🏫</div><div class="comm-cat">学習支援</div><div class="comm-name">子ども・学生への学習支援ボランティア</div><div class="comm-desc">NPO法人学習塾HOPE・みどの福祉会・NPO法人じゃんけんぽんなどと連携した学習支援活動。</div><span class="comm-tag">📚 学習支援</span></div>
+        <div class="comm-card"><div class="comm-icon">🤝</div><div class="comm-cat">福祉・介護</div><div class="comm-name">福祉施設・障害者支援センターでの活動</div><div class="comm-desc">食育レストラン「晴れの日」・高崎市障害者サポートセンターる～ぷ・特別養護老人ホーム等での活動。</div><span class="comm-tag">💚 福祉</span></div>
+        <div class="comm-card"><div class="comm-icon">🌍</div><div class="comm-cat">国際交流・NGO</div><div class="comm-name">IVUSA・国際ボランティア学生協会</div><div class="comm-desc">国内外の被災地支援や地域活動に取り組む学生団体。国際的な視野と行動力が身につく活動です。</div><span class="comm-tag">🌏 国際</span></div>
+        <div class="comm-card"><div class="comm-icon">🌱</div><div class="comm-cat">まちづくり・環境</div><div class="comm-name">0号館・フレまち隊・学生環境団体</div><div class="comm-desc">高崎のまちを元気にする学生団体「0号館」や地域フィールドワーク系サークルが活動中。</div><span class="comm-tag">🏘️ まちづくり</span></div>
+        <div class="comm-card"><div class="comm-icon">📣</div><div class="comm-cat">社会貢献・募金</div><div class="comm-name">あしなが学生募金・あすなろ学生部会</div><div class="comm-desc">遺児支援のあしなが学生募金や地域の子ども・高齢者支援に取り組む「あすなろ」など。</div><span class="comm-tag">❤️ 社会貢献</span></div>
       </div>
-      <!-- 窓口バナー -->
       <div class="comm-office">
         <div class="comm-office-icon">🏢</div>
         <div class="comm-office-body">
           <div class="comm-office-title">学生ボランティア活動支援室（大学公式）</div>
-          <div class="comm-office-desc">高経大の事務棟1階に設置。ボランティア先のマッチング・保険加入支援・情報提供を行っています。「何かしたい」という気持ちがあれば、まず相談してみよう。</div>
+          <div class="comm-office-desc">高経大の事務棟1階に設置。ボランティア先のマッチング・保険加入支援・情報提供を行っています。</div>
           <div class="comm-office-links">
             <a href="https://www.tcue.ac.jp/leafpage/224.html" target="_blank" class="comm-link">🔗 公式ページを見る</a>
             <a href="mailto:volunteer@tcue.ac.jp" class="comm-link">✉️ volunteer@tcue.ac.jp</a>
@@ -1440,6 +1386,13 @@ const EVENTS=[
    place:"エコラボカフェ",time:"15:00〜17:00",capacity:"先着約50名",fee:"無料",
    applyUrl:"https://forms.gle/V4cBus678YhATVKp6",
    detailUrl:"https://dosgozi-beep.github.io/Unihack/",
+   cat:"student"},
+  {id:"ev1",type:"student",tl:"🎓 学生主導",date:"4.23 WED",name:"大学スタート対話",
+   desc:"「なんとなく」の大学生活で終わらせない。自分のやりたいことを言葉にする少人数トークイベント。",
+   detail:"「とりあえず大学に入ったけど、本当にやりたいことがわからない」そんな人のためのイベント。\n先輩の話を聞いた上で「じゃあ自分は？」と問い直す夜。漠然としていたものを自分の言葉で語れるようになろう。\n\n主催: MIDNIGHT SUN 森山",
+   place:"高崎経済大学 2号館 211教室",time:"18:00〜20:00",capacity:"少人数",fee:"無料",
+   applyUrl:"https://forms.gle/L8qJ2nAvpBvGhAFw8",
+   detailUrl:"https://dosgozi-beep.github.io/event/",
    cat:"student"},
 ];
 
@@ -1827,7 +1780,7 @@ function renderEv(list){
   if(!el)return;
   el.innerHTML=list.map(e=>`
     <div class="ev-card ev-${e.type}" onclick="openEvModal('${e.id}')" style="cursor:pointer;position:relative;overflow:hidden">
-      ${e.id==='ev0'?'<div style="position:absolute;top:0;right:0;background:var(--terra);color:white;font-size:9px;font-weight:700;padding:4px 10px;border-radius:0 0 0 10px;letter-spacing:.06em">🆕 NEW</div>':''}
+      ${(e.id==='ev0'||e.id==='ev1')?'<div style="position:absolute;top:0;right:0;background:var(--terra);color:white;font-size:9px;font-weight:700;padding:4px 10px;border-radius:0 0 0 10px;letter-spacing:.06em">🆕 NEW</div>':""}
       <div class="ev-type">${e.tl}</div>
       <div class="ev-date">${e.date}</div>
       <div class="ev-name">${e.name}</div>
@@ -2102,7 +2055,7 @@ function renderFeatures(){
   const dots=document.getElementById('feat-dots');
   if(dots){
     dots.style.display='flex';dots.style.gap='6px';
-    dots.innerHTML=visible.map((_,i)=>`<div class="feat-dot${i===0?' active':''}" onclick="goFeatureSlide(${i})"></div>`).join('');
+    dots.innerHTML=FEATURES.map((_,i)=>`<div class="feat-dot${i===0?' active':''}" onclick="goFeatureSlide(${i})"></div>`).join('');
   }
   // スクロールで dot 更新
   slider.addEventListener('scroll',()=>{
